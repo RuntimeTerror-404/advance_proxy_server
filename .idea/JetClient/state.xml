@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JetClientState">
+    <option name="draftsState">
+      <draftsState>
+        <option name="requests">
+          <list>
+            <requestState>
+              <option name="auth">
+                <authState>
+                  <option name="type" value="NO_AUTH" />
+                </authState>
+              </option>
+              <option name="headers">
+                <list>
+                  <headerState>
+                    <option name="key" value="User-ID" />
+                    <option name="value" value="user123" />
+                  </headerState>
+                </list>
+              </option>
+              <option name="id" value="bda451a2-4dda-461f-b513-5e59ccdc5a16" />
+              <option name="method" value="GET" />
+              <option name="name" value="Draft" />
+              <option name="queryParams">
+                <list>
+                  <queryParamState>
+                    <option name="key" value="url" />
+                    <option name="value" value="https://google.com" />
+                  </queryParamState>
+                </list>
+              </option>
+              <option name="url" value="http://localhost:8080/proxy?url=https://google.com" />
+            </requestState>
+            <requestState>
+              <option name="auth">
+                <authState>
+                  <option name="type" value="NO_AUTH" />
+                </authState>
+              </option>
+              <option name="body">
+                <bodyState>
+                  <option name="raw" value="{&#10;  &quot;id&quot;: &quot;dynamic-route-2&quot;,&#10;  &quot;uri&quot;: &quot;https://jsonplaceholder.typicode.com&quot;,&#10;  &quot;predicates&quot;: [{&quot;name&quot;: &quot;Path&quot;, &quot;args&quot;: {&quot;_genkey_0&quot;: &quot;/todos/**&quot;}}]&#10;}" />
+                  <option name="type" value="JSON" />
+                </bodyState>
+              </option>
+              <option name="id" value="239039a3-4be4-4c06-b49a-d9bd72c021b8" />
+              <option name="method" value="GET" />
+              <option name="name" value="post-1" />
+              <option name="url" value="http://localhost:8082/service/data1" />
+            </requestState>
+            <requestState>
+              <option name="id" value="dd1ea1eb-d5ea-41fe-9407-2d1b0363ddf7" />
+              <option name="method" value="DELETE" />
+              <option name="name" value="Draft (1)" />
+              <option name="url" value="http://localhost:8080/gateway/deleteRoute/dynamic-route-2" />
+            </requestState>
+          </list>
+        </option>
+      </draftsState>
+    </option>
+    <option name="id" value="e78e0afc-8190-4e08-8201-a27f2bd63eab" />
+    <option name="version" value="4" />
+  </component>
+</project>
