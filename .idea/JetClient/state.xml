@@ -15,7 +15,12 @@
                 <list>
                   <headerState>
                     <option name="key" value="User-ID" />
-                    <option name="value" value="user123" />
+                    <option name="value" value="mohit123" />
+                  </headerState>
+                  <headerState>
+                    <option name="disabled" value="true" />
+                    <option name="key" value="mohit7" />
+                    <option name="value" value="mohit parashar" />
                   </headerState>
                 </list>
               </option>
@@ -26,11 +31,11 @@
                 <list>
                   <queryParamState>
                     <option name="key" value="url" />
-                    <option name="value" value="https://google.com" />
+                    <option name="value" value="https://linkedin.com" />
                   </queryParamState>
                 </list>
               </option>
-              <option name="url" value="http://localhost:8080/proxy?url=https://google.com" />
+              <option name="url" value="http://localhost:8080/proxy?url=https://linkedin.com" />
             </requestState>
             <requestState>
               <option name="auth">
