@@ -105,7 +105,7 @@ public class ProxyController {
 
                 String response = proxyService.fetchFromHost(url);
 
-                if (response != null && !response.contains("Error")) {
+                if (response != null && response.contains("html")) {
                     cache.put(url, response); // Store in cache if valid response
                     logger.info("Stored in cache: " + url);
                 }
