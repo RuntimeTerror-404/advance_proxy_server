@@ -4,28 +4,38 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class RateLimiter {
-    private final ConcurrentHashMap<String, Long> requestCounts = new ConcurrentHashMap<>();
-    private final int maxRequests;
-    private final long timeWindow;
+    private final long maxRequests;
+    private final long timeWindowMillis;
+    private final ConcurrentHashMap<String, Long> userRequests = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Long> userTimestamps = new ConcurrentHashMap<>();
 
-    public RateLimiter(int maxRequests, long timeWindow) {
+    public RateLimiter(long maxRequests, long timeWindowMillis) {
         this.maxRequests = maxRequests;
-        this.timeWindow = timeWindow;
+        this.timeWindowMillis = timeWindowMillis;
     }
 
     public boolean allowRequest(String userId) {
         long currentTime = System.currentTimeMillis();
-        requestCounts.putIfAbsent(userId, currentTime);
-        long lastRequestTime = requestCounts.get(userId);
+        userTimestamps.putIfAbsent(userId, currentTime);
+        userRequests.putIfAbsent(userId, 0L);
 
-        if (currentTime - lastRequestTime > timeWindow) {
-            requestCounts.put(userId, currentTime);
-            return true; // Allow request and reset count
-        } else if (requestCounts.size() < maxRequests) {
-            return true; // Allow request within window
+        long lastRequestTime = userTimestamps.get(userId);
+        long requests = userRequests.get(userId);
+
+        if (currentTime - lastRequestTime > timeWindowMillis) {
+            // Reset time window for the user
+            userTimestamps.put(userId, currentTime);
+            userRequests.put(userId, 1L); // First request in new window
+            return true;
+        } else if (requests < maxRequests) {
+            // Increment request count in current time window
+            userRequests.put(userId, requests + 1);
+            return true;
         } else {
-            return false; // Deny request
+            // Deny the request
+            return false;
         }
     }
 }
+
 
